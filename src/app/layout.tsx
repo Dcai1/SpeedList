@@ -14,9 +14,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Your Shopping List",
+  title: {
+    template: "%s | SpeedList",
+    default: `SpeedList`,
+  },
   description:
-    "Your Shopping List is a simple and easy-to-use shopping list website.",
+    "SpeedList is a simple, versatile and easy-to-use listing website created solely for shopping. Create, edit, and send your shopping list to friends and family on-the-go.",
 };
 
 export default function RootLayout({

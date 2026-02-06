@@ -1,3 +1,11 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About This Website",
+  description:
+    "Started alone as just a passion project, this is a website application that stores any items you create, inside a database. Delete, edit, create, and send your shopping list with ease.",
+};
+
 export default function About() {
   return (
     <main className="flex flex-col min-h-[100vh] p-10 mx-auto text-center overflow-auto bg-white">
@@ -9,9 +17,9 @@ export default function About() {
         <div className="p-6 space-y-1 text-xl text-black border shadow-xl sm:text-2xl text-shadow-lg text-shadow-red-300 rounded-xl shadow-gray-300">
           <p>
             This is a website application that stores any shopping items you
-            create in a database. You can delete, edit, create, and even copy a
-            formatted version of the list to your clipboard, so you can send it
-            to anyone (Like your family members!)
+            create, inside a database. You can delete, edit, create, and even
+            copy a formatted version of the list to your clipboard, so you can
+            send it to anyone (Like your family members!)
           </p>
           <p className="p-6">
             <b>

@@ -22,7 +22,7 @@ model shopping_list {
   details  String?  @default("No Description") @db.VarChar(300)
   date     DateTime @default(now())
 
-  @@map("shopping_list")
-  @@index([userId])
   @@unique([item, userId])
+  @@index([userId])
+  @@map("shopping_list")
 }
