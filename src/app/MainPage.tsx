@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import PageButton from "./components/button";
 import InputBar from "./components/input";
 import { getAnonymousUserId } from "./util/session";
+import { motion } from "motion/react";
 
 type ShoppingListItem = {
   id: number;
@@ -223,40 +224,103 @@ export default function MainPage() {
   // Main Front-End Interface
   return (
     <main className="flex flex-col items-center justify-start min-h-[100vh] p-6 overflow-auto bg-gray-200 shadow-lg">
-      <div className="w-full max-w-screen-xl p-3 m-4 text-black bg-white border-4 border-gray-200 shadow-lg shadow-gray-400 outline-4 outline-gray-500 rounded-xl">
-        <h1 className="p-3 mb-6 text-4xl text-center underline bg-gray-300 border-black bold italize underline-offset-8 border-3 sm:text-5xl">
+      <div className="flex flex-col w-full max-w-screen-xl p-3 m-4 space-y-5 text-black bg-white border-4 border-gray-200 shadow-lg sm:space-y-20 shadow-gray-400 outline-4 outline-gray-500 rounded-xl">
+        <motion.h1
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.2, delay: 0.2 }}
+          className="p-3 mb-6 text-4xl text-center underline bg-gray-300 border-black bold italize underline-offset-8 border-3 sm:text-5xl"
+        >
           SpeedList
-        </h1>
+        </motion.h1>
 
         <div className="p-3 m-3 overflow-auto text-lg sm:text-xl outline-4 outline-gray-500 rounded-xl">
-          <p className="mb-6 text-center">
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 1 }}
+            className="mb-6 text-center"
+          >
             SpeedList is a clean, responsive shopping list web app that helps
             you quickly create, manage, and copy a perfectly formatted shopping
-            list, ready to share via text or notes.
-          </p>
-          <ol className="p-6 m-6 mx-auto space-y-1 list-decimal list-inside transition-all duration-300 bg-gray-200 shadow-2xl hover:scale-120 sm:hover:scale-105 outline-gray-500 outline-3 rounded-xl w-fit shadow-gray-400">
-            <li>
-              Type in your <b>item name, quantity, priority, and any details</b>
-            </li>
-            <li>
-              Click <b>Create</b> to add it to the list
-            </li>
-            <li>
-              Use the <b>Copy to Clipboard</b> button to export the list for
-              texting or saving
-            </li>
-            <li>
-              Quickly <b>edit</b> or <b>delete</b> items on the fly!
-            </li>
-          </ol>
+            list, ready to share via text or notes, <b>in four simple steps!</b>
+          </motion.p>
+
+          <motion.div
+            initial={{ rotate: 0 }}
+            whileHover={{ rotate: 2, scale: 1.01 }}
+            transition={{ type: "spring", duration: 0.3 }}
+            className="flex m-3 mx-auto w-fit"
+          >
+            <ol className="p-6 m-6 mx-auto space-y-2 list-none list-inside duration-300 bg-gray-200 shadow-2xl outline-gray-500 outline-3 rounded-xl w-fit shadow-gray-400">
+              <li>
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ delay: 0.6, duration: 0.5 }}
+                >
+                  Type in your{" "}
+                  <b>item name, quantity, priority, and any details</b>
+                </motion.p>
+              </li>
+              <li>
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ delay: 0.8, duration: 0.5 }}
+                >
+                  Click <b>Create</b> to add it to the list
+                </motion.p>
+              </li>
+              <li>
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ delay: 1, duration: 0.5 }}
+                >
+                  Use the <b>Copy to Clipboard</b> button to export the list for
+                  texting or saving
+                </motion.p>
+              </li>
+              <li>
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  whileInView={{ scale: 1.01 }}
+                  transition={{ delay: 1.2, duration: 0.6, type: "spring" }}
+                >
+                  Quickly <b>edit</b> or <b>delete</b> items on the fly!
+                </motion.p>
+              </li>
+            </ol>
+          </motion.div>
         </div>
 
-        <h1 className="p-3 mx-auto mt-20 text-4xl text-center bg-gray-300 border-black shadow-xl rounded-2xl w-fit border-3 sm:text-5xl">
-          Your SpeedList
-        </h1>
-
+        <motion.div
+          initial={{ rotate: 0 }}
+          whileHover={{ rotate: 2, scale: 1.01 }}
+          transition={{ type: "spring", duration: 0.3 }}
+          className="flex mx-auto w-fit"
+        >
+          <motion.h1
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="p-3 mx-auto mt-20 text-4xl text-center bg-gray-300 border-black shadow-xl rounded-2xl w-fit border-3 sm:text-5xl"
+          >
+            Your SpeedList
+          </motion.h1>
+        </motion.div>
         {/* Retrieve and display all items on the list */}
-        <div className="p-6 mt-6 mb-5 overflow-x-hidden bg-gray-100 border-4 border-gray-400 shadow-gray-100 rounded-3xl">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 0.6 }}
+          className="p-6 mt-6 mb-5 overflow-x-hidden bg-gray-100 border-4 border-gray-400 shadow-gray-100 rounded-3xl"
+        >
           {loading && (
             <div className="items-center mx-auto my-auto">
               <h1 className="text-3xl text-center text-black transition-all sm:text-4xl animate-bounce">
@@ -267,7 +331,12 @@ export default function MainPage() {
 
           {/* Retrieve and display database contents */}
           {shoppingList.map((items) => (
-            <div key={items.id}>
+            <motion.div
+              key={items.id}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.7 }}
+            >
               <ul className="p-2 text-lg sm:text-xl">
                 {/* Highlight item content on click */}
                 <li
@@ -291,7 +360,7 @@ export default function MainPage() {
                   {items.date.toString()}
                 </li>
               </ul>
-            </div>
+            </motion.div>
           ))}
 
           {shoppingList.length === 0 && (
@@ -299,7 +368,7 @@ export default function MainPage() {
               No items found in your shopping list.
             </p>
           )}
-        </div>
+        </motion.div>
 
         {/* Clear and Copy to Clipboard Button */}
         <div className="flex justify-end w-full max-w-screen-xl grid-cols-2 gap-2 mb-20">
@@ -319,7 +388,7 @@ export default function MainPage() {
         </div>
 
         {/* Input Fields */}
-        <div className="grid items-center grid-cols-1 p-3 m-6 mx-auto mb-10 overflow-auto justify-items-center lg:grid-cols-4 md:grid-cols-2 rounded-xl outline-3 outline-gray-400">
+        <div className="grid items-center grid-cols-1 gap-4 p-3 m-6 mx-auto mb-10 overflow-auto justify-items-center lg:grid-cols-4 md:grid-cols-2 rounded-xl outline-3 outline-gray-400">
           {/* Item Name */}
           <InputBar
             label="Item Name"
@@ -388,7 +457,12 @@ export default function MainPage() {
         </div>
 
         {/* Bottom Caption */}
-        <div className="p-3 m-3 space-y-8 text-lg text-center sm:text-xl outline-4 outline-gray-500 rounded-xl">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.8, duration: 0.6 }}
+          className="p-3 m-3 space-y-8 text-lg text-center sm:text-xl outline-4 outline-gray-500 rounded-xl"
+        >
           <p>
             Simply enter your items, click <b>Create</b>, and your shopping list
             is instantly ready to be copied to your clipboard and shared! <br />
@@ -397,11 +471,12 @@ export default function MainPage() {
           </p>
           <p>
             A digital shopping list is a convenient way to keep track of your
-            grocery needs. You can add, remove, and update items as needed,
+            grocery needs, and SpeedList has everything a digital shopping list
+            needs! <br /> You can add, remove, and update items with speed,
             making it easier to plan and avoid forgetting your most-essential
             items.
           </p>
-        </div>
+        </motion.div>
       </div>
     </main>
   );
