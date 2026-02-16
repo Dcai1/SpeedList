@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "motion/react";
+
 type PageButtonProps = {
   onClick: () => void;
   label: string;
@@ -23,15 +27,22 @@ export default function PageButton({
   const hoverClass = variantColor[variant];
 
   return (
-    <button
-      onClick={onClick}
-      className={`p-3 m-3 text-lg font-bold text-center text-black transition-all bg-gray-300 outline-4 rounded-2xl sm:text-xl ${
-        disabled
-          ? "grayscale opacity-25 cursor-not-allowed"
-          : `${hoverClass} hover:scale-120 active:scale-80`
-      }`}
+    <motion.div
+      // Animation Values
+      initial={{ scale: 1, rotate: 0 }}
+      whileHover={{ scale: 1.1, rotate: 2 }}
+      transition={{ duration: 0.2, type: "spring" }}
+      whileTap={{ scale: 0.9, rotate: 0 }}
+      className="w-fit"
     >
-      {label}
-    </button>
+      <button
+        onClick={onClick}
+        className={`p-3 m-3 text-lg font-bold text-center text-black bg-gray-300 outline-4 rounded-2xl sm:text-xl ${
+          disabled ? "grayscale opacity-25 cursor-not-allowed" : `${hoverClass}`
+        }`}
+      >
+        {label}
+      </button>
+    </motion.div>
   );
 }

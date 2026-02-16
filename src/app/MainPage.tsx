@@ -250,6 +250,7 @@ export default function MainPage() {
             initial={{ rotate: 0 }}
             whileHover={{ rotate: 2, scale: 1.01 }}
             transition={{ type: "spring", duration: 0.3 }}
+            whileTap={{ scale: 0.95, rotate: 0 }}
             className="flex m-3 mx-auto w-fit"
           >
             <ol className="p-6 m-6 mx-auto space-y-2 list-none list-inside duration-300 bg-gray-200 shadow-2xl outline-gray-500 outline-3 rounded-xl w-fit shadow-gray-400">
@@ -309,6 +310,7 @@ export default function MainPage() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.6 }}
+            whileTap={{ scale: 0.95, rotate: 0 }}
             className="p-3 mx-auto mt-20 text-4xl text-center bg-gray-300 border-black shadow-xl rounded-2xl w-fit border-3 sm:text-5xl"
           >
             Your SpeedList
@@ -351,7 +353,7 @@ export default function MainPage() {
                   className={`capitalize bg-amber-300 rounded-xl border-3 border-yellow-500 ${
                     selection === items.id
                       ? "bg-yellow-200 p-3 capitalize shadow-xl shadow-yellow-100"
-                      : "p-3 capitalize shadow-2xl hover:bg-yellow-500 shadow-yellow-300 transition-all duration-500"
+                      : "p-3 capitalize shadow-2xl hover:bg-yellow-500 shadow-yellow-300 duration-500"
                   }`}
                 >
                   <b>Name:</b> {items.item} | <b>Priority:</b> {items.priority}{" "}
